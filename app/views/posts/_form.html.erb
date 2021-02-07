@@ -1,0 +1,43 @@
+<%= form_with(model: post, id: dom_id(post), data: {controller: "form"}) do |form| %>
+    <!--<%# if post.errors.any? %>-->
+    <!--<div id="error_explanation">-->
+    <!--<h2><%#= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>-->
+
+    <!--<ul>-->
+    <!--<%# post.errors.each do |error| %>-->
+    <!--<li><%#= error.full_message %></li>-->
+    <!--<%# end %>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<%# end %>-->
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, required: true, class: "form-control form-control-md" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :publish_date %>
+      <%= form.date_select :publish_date, class: "form-control form-control-md" %>
+    </div>
+
+    <div class="field">
+      <%#= form.label :age_adult, "No", class: "form-label" %>
+      <%#= form.radio_button :happy, "child", class: "form-control form-control-md" %>
+      <%#= form.label :age_child, "Yes", class: "form-label" %>
+      <%#= form.radio_button :happy, "adult", class: "form-control form-control-md" %>
+
+      <%= form.label :happy %>
+      <%= form.check_box :happy, class: "form-control form-control-md" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :scale, "How happy are you?", class: "form-label" %>
+      <%= form.range_field :scale, required: true, in: 1..10, class: "form-range" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-success submit-button" %>
+    </div>
+<% end %>
+

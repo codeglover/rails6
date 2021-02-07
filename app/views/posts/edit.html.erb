@@ -1,0 +1,10 @@
+
+<%= turbo_frame_tag dom_id(@post) do %>
+    <h1>Editing Post</h1>
+    <%= render 'form', post: @post %>
+    <%= link_to 'Show', @post %> |
+    <%= link_to 'All Posts', posts_path %>
+<% end %>
+
+
+

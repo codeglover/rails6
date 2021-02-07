@@ -1,0 +1,6 @@
+
+<%= turbo_frame_tag dom_id(@post) do %>
+<h1>New Post</h1>
+<%= render 'form', post: @post %>
+<%= link_to 'All Posts', posts_path %>
+<% end %>
