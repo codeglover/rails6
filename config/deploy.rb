@@ -26,6 +26,15 @@ set :rvm_ruby_version, '3.0.0'
 # set :default_env, {
 #     "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
 # }
+set :default_env, {
+    "RAILS_ENV" => "production",
+    "RAILS_MASTER_KEY" => "c4042353acf7ae37e813501153fd62a6",
+    "PATH" => "/home/ubuntu/.nvm/versions/node/v15.8.0/bin:$PATH"
+}
+
+set :default_env, {
+
+}
 
 # set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
