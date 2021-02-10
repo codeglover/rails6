@@ -10,18 +10,18 @@ set :log_level, :debug
 set :pty, false
 
 # RVM 1 Settings
-# append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
-# set :rvm1_ruby_version, 'ruby-3.0.0'
-# set :rvm_type, :user
-# set :default_env, {
-#     rvm_bin_path: '~/.rvm/bin',
-# }
-# set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
+append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
+set :rvm1_ruby_version, 'ruby-3.0.0'
+set :rvm_type, :user
+set :default_env, {
+    rvm_bin_path: '~/.rvm/bin',
+}
+set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
 
 
 # RVM Settings
-set :rvm_type, :user
-set :rvm_ruby_version, '3.0.0'
+# set :rvm_type, :user
+# set :rvm_ruby_version, '3.0.0'
 # set :rvm_custom_path, '~/.rvm/bin'
 # set :default_env, {
 #     "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
