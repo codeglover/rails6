@@ -42,6 +42,7 @@ gem 'redis', '~> 4.2', '>= 4.2.2'
 gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false
+gem 'cocoon'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -60,6 +61,18 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'capistrano', '~> 3.10',  require: false
+  gem 'capistrano-rails', '~> 1.5',  require: false
+  gem 'capistrano-bundler', '~> 1.6', require: false
+  gem 'rvm1-capistrano3', '1.4.0', require: false
+  #gem 'capistrano-rvm'
+  gem 'capistrano-faster-assets', '~> 1.0'
+  gem 'capistrano-postgresql', '~> 4.8.0'
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-sidekiq', '~> 1', group: :development
+  gem 'capistrano-rails-logs-tail'
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 group :test do

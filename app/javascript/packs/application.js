@@ -15,7 +15,8 @@ import "../stylesheets/application"
 // import '@client-side-validations/client-side-validations'
 // import the bootstrap javascript module
 import "bootstrap"
-
+import "jquery"
+import "@nathanvda/cocoon"
 
 // Rails.start()
 ActiveStorage.start()

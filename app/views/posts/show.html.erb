@@ -1,21 +1,18 @@
-
-
 <%= turbo_frame_tag dom_id(@post) do %>
-
     <p id="notice"><%= notice %></p>
     <p>
       <strong>Title:</strong>
       <%= @post.title %>
     </p>
-
     <p>
       <strong>Publish date:</strong>
       <%= @post.publish_date %>
     </p>
-
     <p>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %>
+      <%= turbo_frame_tag "comments", src: post_comments_path(@post.hn_id) if @post.hn_id.present? %>
+
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Back', posts_path %>
     </p>
 <% end %>
 

@@ -1,0 +1,4 @@
+<%= render @post %>
+<%= turbo_frame_tag "comments" do %>
+    <%= render partial: 'comments', locals: { post: @post, comments: @post.kids.order(:location) } %>
+<% end %>

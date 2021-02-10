@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_223131) do
+ActiveRecord::Schema.define(version: 2021_02_07_035007) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "by"
+    t.bigint "hn_id"
+    t.bigint "parent_id"
+    t.text "text"
+    t.boolean "dead"
+    t.datetime "time"
+    t.integer "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hn_id"], name: "index_comments_on_hn_id"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -19,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_06_223131) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "happy"
     t.integer "scale"
+    t.bigint "hn_id"
   end
 
   create_table "users", force: :cascade do |t|

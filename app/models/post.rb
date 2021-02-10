@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   validates :happy, presence: true
   # validates :scale, presence: true
   # has_rich_text :title
+  has_many :kids, class_name: "Comment", primary_key: 'hn_id', foreign_key: 'parent_id'
+  accepts_nested_attributes_for :kids, allow_destroy: true
 
   after_create_commit {broadcast_prepend_to "posts"}
   after_update_commit {broadcast_replace_to "posts"}

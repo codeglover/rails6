@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  by: MyString
+  hn_id: 
+  parent_id: 
+  text: MyText
+  dead: false
+  time: 2021-02-06 19:34:30
+  location: 1
+
+two:
+  by: MyString
+  hn_id: 
+  parent_id: 
+  text: MyText
+  dead: false
+  time: 2021-02-06 19:34:30
+  location: 1

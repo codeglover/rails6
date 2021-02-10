@@ -36,6 +36,17 @@
       <%= form.range_field :scale, required: true, in: 1..10, class: "form-range" %>
     </div>
 
+
+
+    <% form.fields_for :kids, Comment.new do |comment| %>
+        <%= comment.label :text %>
+        <%= comment.text_field :text, required: true, class: "form-control form-control-md" %>
+    <% end %>
+    <label for="comment">
+      <%= link_to_add_association '<i class=""></i>add'.html_safe, form, :kids, class: 'btn btn-xs btn-default', style: '', id: "add_comment_button" %>
+    </label>
+    <hr>
+
     <div class="actions">
       <%= form.submit class: "btn btn-success submit-button" %>
     </div>
