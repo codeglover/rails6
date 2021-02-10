@@ -279,6 +279,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    pg (1.2.3)
     popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (5.2.0)
@@ -440,6 +441,7 @@ DEPENDENCIES
   omniauth-facebook (~> 6.0)
   omniauth-github (~> 1.4)
   omniauth-twitter (~> 1.4)
+  pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
