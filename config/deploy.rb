@@ -46,7 +46,6 @@ append :linked_files, 'config/database.yml', 'config/master.key'
 
 namespace :deploy do
 
-  namespace :deploy do
     namespace :check do
       before :linked_files, :set_master_key do
         on roles(:app), in: :sequence, wait: 10 do
@@ -56,7 +55,6 @@ namespace :deploy do
         end
       end
     end
-  end
 
   # namespace :check do
   #   before :linked_files, :set_master_key do
