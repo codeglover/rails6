@@ -29,7 +29,7 @@ set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
 # set :linked_files, ['config/secrets.yml']
 set :linked_files, 'config/master.key'
 set :migration_role, :app
-append :linked_files, "config/master.key"
+# append :linked_files, "config/master.key"
 set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
 
 set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
