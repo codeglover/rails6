@@ -1,7 +1,7 @@
 set :deploy_to, '/home/ubuntu/www/rails6'
 set :stage, :production
 set :rails_env, :production
-set :branch, "master"
+set :branch, "main"
 set :template_dir, '/home/ubuntu/www/rails6/shared/config'
 set :user, "ubuntu"
 
