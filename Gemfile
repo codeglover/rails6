@@ -61,18 +61,18 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'capistrano', '~> 3.10',  require: false
+  gem 'capistrano', '~> 3.15',  require: false
   gem 'capistrano-rails', '~> 1.6',  require: false
-  gem 'capistrano-bundler', '~> 1.6', require: false
+  gem 'capistrano-bundler', '~> 2.0', require: false
   gem 'rvm1-capistrano3', require: false
   #gem 'capistrano-rvm'
-  gem 'capistrano-faster-assets', '~> 1.0'
-  gem 'capistrano-postgresql', '~> 4.8.0'
-  gem 'capistrano-rails-console', require: false
-  gem 'capistrano-sidekiq', '~> 1', group: :development
-  gem 'capistrano-rails-logs-tail'
+  # gem 'capistrano-faster-assets', '~> 1.0'
+  gem 'capistrano-postgresql', '~> 6.2.0'
+  # gem 'capistrano-rails-console', require: false
+  # gem 'capistrano-sidekiq', '~> 1', group: :development
+  # gem 'capistrano-rails-logs-tail'
   # gem 'capistrano-figaro-yml', '~> 1.0.2'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano3-puma','~> 5.0', github: "seuros/capistrano-puma"
 end
 
 group :test do

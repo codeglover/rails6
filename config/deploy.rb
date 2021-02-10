@@ -9,7 +9,7 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
-
+set :migration_role, :app
 # RVM 1 Settings
 append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
 set :rvm1_ruby_version, 'ruby-3.0.0'
@@ -25,10 +25,13 @@ set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
 # set :rvm_ruby_version, '2.3.3'
 # set :rvm_custom_path, '~/.myveryownrvm'
 
-set :linked_files, ['config/database.yml', 'config/master.key']
-set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
+# set :linked_files, ['config/database.yml', 'config/master.key']
+set :linked_files, %w{config/master.key}
+append :linked_files, "config/master.key"
 
-set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
+set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
+
+# set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
 # removed
 # Gemfile.lock
 
@@ -43,15 +46,15 @@ set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
 namespace :deploy do
 
-    namespace :check do
-      before :linked_files, :set_master_key do
-        on roles(:app), in: :sequence, wait: 10 do
-          unless test("[ -f #{shared_path}/config/master.key ]")
-            upload! 'config/master.key', "#{shared_path}/config/master.key"
-          end
+  namespace :check do
+    before :linked_files, :set_master_key do
+      on roles(:app), in: :sequence, wait: 10 do
+        unless test("[ -f #{shared_path}/config/master.key ]")
+          upload! 'config/master.key', "#{shared_path}/config/master.key"
         end
       end
     end
+  end
 
   # task :fix_absent_manifest_bug do
   #   on roles(:web) do
