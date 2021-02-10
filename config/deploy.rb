@@ -37,7 +37,7 @@ set :default_env, {
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 append :linked_files, 'config/database.yml', 'config/master.key'
-# set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
+set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
 # removed
 # Gemfile.lock
 
@@ -61,76 +61,32 @@ namespace :deploy do
     end
   end
 
-  # namespace :check do
-  #   before :linked_files, :set_master_key do
-  #     on roles(:app), in: :sequence, wait: 10 do
-  #       unless test("[ -f #{shared_path}/config/master.key ]")
-  #         upload! 'config/master.key', "#{shared_path}/config/master.key"
-  #       end
-  #     end
-  #   end
-  # end
-
-  # task :fix_absent_manifest_bug do
-  #   on roles(:web) do
-  #     within release_path do execute 'mkdir', release_path, 'assets_manifest_backup'
-  #     end
-  #   end
-  # end
-  #
-  # after :updating, 'deploy:fix_absent_manifest_bug'
-
-
-
-
-  # namespace :assets do
-  #   task :backup_manifest do
-  #     on roles(fetch(:assets_roles)) do
-  #       within release_path do
-  #         execute :cp,
-  #                 release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
-  #                 release_path.join('assets_manifest_backup')
-  #       end
-  #     end
-  #   end
-  # end
-  #before :starting, 'deploy:fix_absent_manifest_bug'
-  # desc 'create_db'
-  # task :create_db do
-  #   on roles(:app) do
-  #     invoke 'rvm1:hook'
-  #     within release_path do
-  #       execute :bundle, :exec, :"rails db:create RAILS_ENV=#{fetch(:stage)}"
-  #     end
-  #   end
-  # end
-
-  # desc 'Uploads required config files'
-  # task :upload_configs do
-  #   on roles(:all) do
-  #     upload!(".env.#{fetch(:stage)}", "#{deploy_to}/shared/.env")
-  #   end
-  # end
-
-  # desc 'Seeds database'
-  # task :seed do
-  #   on roles(:app) do
-  #     invoke 'rvm1:hook'
-  #     within release_path do
-  #       execute :bundle, :exec, :"rails db:seed RAILS_ENV=#{fetch(:stage)}"
-  #     end
-  #   end
-  # end
-
-  # desc 'Seeds database'
-  # task :seed do
-  #   on roles(:app) do
-  #     invoke 'rvm1:hook'
-  #     within release_path do
-  #       execute :bundle, :exec, :"rake db:setup RAILS_ENV=#{fetch(:stage)}"
-  #     end
-  #   end
-  # end
+  namespace :assets do
+    task :backup_manifest do
+      on roles(fetch(:assets_roles)) do
+        within release_path do
+          execute :cp,
+                  release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
+                  release_path.join('assets_manifest_backup')
+        end
+      end
+    end
+  end
+  desc 'Uploads required config files'
+  task :upload_configs do
+    on roles(:all) do
+      upload!(".env.#{fetch(:stage)}", "#{deploy_to}/shared/.env")
+    end
+  end
+  desc 'Seeds database'
+  task :seed do
+    on roles(:app) do
+      invoke 'rvm1:hook'
+      within release_path do
+        execute :bundle, :exec, :"rake db:setup RAILS_ENV=#{fetch(:stage)}"
+      end
+    end
+  end
 
   # before 'deploy:migrate', 'deploy:create_db'
   # after :finished, 'deploy:seed'
