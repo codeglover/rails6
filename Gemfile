@@ -65,7 +65,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.6',  require: false
   gem 'capistrano-bundler', '~> 2.0', require: false
   gem 'rvm1-capistrano3', require: false
-  #gem 'capistrano-rvm'
+  gem 'capistrano-rvm'
   # gem 'capistrano-faster-assets', '~> 1.0'
   gem 'capistrano-postgresql', '~> 6.2.0'
   # gem 'capistrano-rails-console', require: false

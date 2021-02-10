@@ -11,19 +11,19 @@ set :pty, false
 
 set :migration_role, :app
 # RVM 1 Settings
-append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
-set :rvm1_ruby_version, 'ruby-3.0.0'
-set :rvm_type, :user
-set :default_env, {
-    rvm_bin_path: '~/.rvm/bin',
-}
-set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
+# append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
+# set :rvm1_ruby_version, 'ruby-3.0.0'
+# set :rvm_type, :user
+# set :default_env, {
+#     rvm_bin_path: '~/.rvm/bin',
+# }
+# set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
 
 
 # RVM Settings
-# set :rvm_type, :user
-# set :rvm_ruby_version, '2.3.3'
-# set :rvm_custom_path, '~/.myveryownrvm'
+set :rvm_type, :user
+set :rvm_ruby_version, '3.0.0'
+set :rvm_custom_path, '~/.rvm/bin'
 
 set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
@@ -45,15 +45,7 @@ set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 've
 
 namespace :deploy do
 
-  namespace :config do
-    task :symlink do
-      on roles(:app) do
-        execute :ln, "-s #{shared_path}/config/master.key #{release_path}/config/master.key"
-      end
-    end
-  end
 
-  after 'deploy:symlink:shared', 'config:symlink'
 
   namespace :check do
     before :linked_files, :set_master_key do
