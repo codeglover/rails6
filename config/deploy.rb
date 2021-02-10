@@ -29,7 +29,7 @@ set :rvm_ruby_version, '3.0.0'
 # }
 
 # set :linked_files, ['config/database.yml', 'config/master.key']
-append :linked_files, "config/master.key"
+# append :linked_files, "config/master.key"
 
 set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
 
