@@ -45,6 +45,16 @@ set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 've
 
 namespace :deploy do
 
+  namespace :config do
+    task :symlink do
+      on roles(:app) do
+        execute :ln, "-s #{shared_path}/master.key #{release_path}/config/master.key"
+      end
+    end
+  end
+
+  after 'deploy:symlink:shared', 'config:symlink'
+
   namespace :check do
     before :linked_files, :set_master_key do
       on roles(:app), in: :sequence, wait: 10 do
