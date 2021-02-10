@@ -46,12 +46,12 @@ append :linked_files, 'config/database.yml', 'config/master.key'
 
 namespace :deploy do
 
-  namespace :check do
-    before :linked_files, :copy_linked_files_if_needed do
-      on roles(:app), in: :sequence, wait: 10 do
-        %w{master.key database.yml}.each do |config_filename|
-          unless test("[ -f #{shared_path}/config/#{config_filename} ]")
-            upload! "config/#{config_filename}", "#{shared_path}/config/#{config_filename}"
+  namespace :deploy do
+    namespace :check do
+      before :linked_files, :set_master_key do
+        on roles(:app), in: :sequence, wait: 10 do
+          unless test("[ -f #{shared_path}/config/master.key ]")
+            upload! 'config/master.key', "#{shared_path}/config/master.key"
           end
         end
       end
