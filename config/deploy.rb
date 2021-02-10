@@ -48,7 +48,7 @@ namespace :deploy do
   namespace :config do
     task :symlink do
       on roles(:app) do
-        execute :ln, "-s #{shared_path}/master.key #{release_path}/config/master.key"
+        execute :ln, "-s #{shared_path}/config/master.key #{release_path}/config/master.key"
       end
     end
   end
