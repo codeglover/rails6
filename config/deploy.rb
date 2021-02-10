@@ -25,7 +25,6 @@ set :rvm_type, :user
 set :rvm_ruby_version, '3.0.0'
 # set :rvm_custom_path, '~/.rvm/bin'
 set :default_env, {
-    "RAILS_ENV" => "production",
     "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
 }
 
