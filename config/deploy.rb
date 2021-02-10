@@ -25,9 +25,8 @@ set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
 # set :rvm_ruby_version, '2.3.3'
 # set :rvm_custom_path, '~/.myveryownrvm'
 
-# set :linked_files, ['config/database.yml', 'config/master.key']
-set :linked_files, %w{config/master.key}
-append :linked_files, "config/master.key"
+set :linked_files, ['config/database.yml', 'config/master.key']
+# append :linked_files, "config/master.key"
 
 set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
 
@@ -36,10 +35,10 @@ set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 've
 # Gemfile.lock
 
 #sidekiq
-set :init_system, :systemd
-set :service_unit_name, "sidekiq.service"
-set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
-set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
+# set :init_system, :systemd
+# set :service_unit_name, "sidekiq.service"
+# set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
+# set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
 
 
@@ -68,17 +67,17 @@ namespace :deploy do
 
 
 
-  namespace :assets do
-    task :backup_manifest do
-      on roles(fetch(:assets_roles)) do
-        within release_path do
-          execute :cp,
-                  release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
-                  release_path.join('assets_manifest_backup')
-        end
-      end
-    end
-  end
+  # namespace :assets do
+  #   task :backup_manifest do
+  #     on roles(fetch(:assets_roles)) do
+  #       within release_path do
+  #         execute :cp,
+  #                 release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
+  #                 release_path.join('assets_manifest_backup')
+  #       end
+  #     end
+  #   end
+  # end
   #before :starting, 'deploy:fix_absent_manifest_bug'
   # desc 'create_db'
   # task :create_db do
@@ -90,12 +89,12 @@ namespace :deploy do
   #   end
   # end
 
-  desc 'Uploads required config files'
-  task :upload_configs do
-    on roles(:all) do
-      upload!(".env.#{fetch(:stage)}", "#{deploy_to}/shared/.env")
-    end
-  end
+  # desc 'Uploads required config files'
+  # task :upload_configs do
+  #   on roles(:all) do
+  #     upload!(".env.#{fetch(:stage)}", "#{deploy_to}/shared/.env")
+  #   end
+  # end
 
   # desc 'Seeds database'
   # task :seed do
@@ -107,15 +106,15 @@ namespace :deploy do
   #   end
   # end
 
-  desc 'Seeds database'
-  task :seed do
-    on roles(:app) do
-      invoke 'rvm1:hook'
-      within release_path do
-        execute :bundle, :exec, :"rake db:setup RAILS_ENV=#{fetch(:stage)}"
-      end
-    end
-  end
+  # desc 'Seeds database'
+  # task :seed do
+  #   on roles(:app) do
+  #     invoke 'rvm1:hook'
+  #     within release_path do
+  #       execute :bundle, :exec, :"rake db:setup RAILS_ENV=#{fetch(:stage)}"
+  #     end
+  #   end
+  # end
 
   # before 'deploy:migrate', 'deploy:create_db'
   # after :finished, 'deploy:seed'
