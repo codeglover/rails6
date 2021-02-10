@@ -23,7 +23,7 @@ set :migration_role, :app
 # RVM Settings
 set :rvm_type, :user
 set :rvm_ruby_version, '3.0.0'
-set :rvm_custom_path, '~/.rvm/bin'
+# set :rvm_custom_path, '~/.rvm/bin'
 
 set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
