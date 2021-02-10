@@ -1,4 +1,4 @@
-lock '3.14.0'
+# lock '3.14.0'
 
 set :application, 'rails6'
 set :repo_url, 'git@github.com:codeglover/rails6.git'
