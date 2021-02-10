@@ -44,14 +44,14 @@ set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.r
 
 namespace :deploy do
 
-  # task :fix_absent_manifest_bug do
-  #   on roles(:web) do
-  #     within release_path do execute 'mkdir', release_path, 'assets_manifest_backup'
-  #     end
-  #   end
-  # end
-  #
-  # after :updating, 'deploy:fix_absent_manifest_bug'
+  task :fix_absent_manifest_bug do
+    on roles(:web) do
+      within release_path do execute 'mkdir', release_path, 'assets_manifest_backup'
+      end
+    end
+  end
+
+  after :updating, 'deploy:fix_absent_manifest_bug'
 
 
 

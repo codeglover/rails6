@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5d2bf3-6cc0-4364-bb0c-e0c03a57cc7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/rails6.iml" afterPath="$PROJECT_DIR$/.idea/rails6.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy.rb" afterPath="$PROJECT_DIR$/config/deploy.rb" />
     </list>
     <ignored path="testing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,8 +66,8 @@
       <file leaf-file-name="production.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="105">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -82,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="100" column="17" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="17" />
+              <caret line="11" column="61" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -91,8 +86,8 @@
       <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="108" column="34" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
+            <state relative-caret-position="60">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="53" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -145,10 +140,10 @@
         <option value="$PROJECT_DIR$/app/views/comments/_comments.html.erb" />
         <option value="$PROJECT_DIR$/app/views/posts/show.html.erb" />
         <option value="$PROJECT_DIR$/Capfile" />
-        <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/config/deploy/production.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/config/deploy.rb" />
       </list>
     </option>
   </component>
@@ -648,12 +643,12 @@
       <option name="presentableId" value="Default" />
       <updated>1612201927487</updated>
       <workItem from="1612201929585" duration="41169000" />
-      <workItem from="1612665385457" duration="9875000" />
+      <workItem from="1612665385457" duration="10234000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51044000" />
+    <option name="totallyTimeSpent" value="51403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1545" height="915" extended-state="0" />
@@ -1045,8 +1040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1054,15 +1049,15 @@
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="100" column="17" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="17" />
+          <caret line="11" column="61" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="108" column="34" selection-start-line="108" selection-start-column="34" selection-end-line="108" selection-end-column="34" />
+        <state relative-caret-position="60">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="53" selection-end-column="51" />
           <folding />
         </state>
       </provider>
