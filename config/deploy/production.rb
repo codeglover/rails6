@@ -9,6 +9,8 @@ server "13.59.247.115", user: "ubuntu", roles: %w{web app db}, primary: true
 #server "landlady.me", user: "travis", roles: %w{web app db}, primary: true
 set :passenger_restart_with_touch, true
 
+
+
 # set :bundle_env_variables, { "http_proxy" => "http://192.168.49.1:8000", "HTTP_PROXY" => "http://192.168.49.1:8000" }
 proxy = "/usr/local/bin/corkscrew 192.168.49.1 8000 %h %p"
 set :ssh_options, {
@@ -18,6 +20,8 @@ set :ssh_options, {
     port: 22,
     proxy: Net::SSH::Proxy::Command.new(proxy)
 }
+
+
 # LetsEncrypt
 shared_path = "/home/travis/letsencrypt/"
 set :letsencrypt_contact_email, 'easyvrmanager@gmail.com'

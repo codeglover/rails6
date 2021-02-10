@@ -9,7 +9,6 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
-set :migration_role, :app
 # RVM 1 Settings
 # append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
 # set :rvm1_ruby_version, 'ruby-3.0.0'
@@ -31,8 +30,8 @@ set :default_env, {
 # set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
 
-set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
-
+append :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
+append :linked_files, 'config/database.yml', 'config/master.key'
 # set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
 # removed
 # Gemfile.lock
@@ -43,12 +42,53 @@ set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 've
 # set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 # set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
+# RAILS specific settings
 
+# If the environment differs from the stage name
+# set :rails_env, 'staging'
+
+# Defaults to :db role
+# App is recommended since the framework manages this
+set :migration_role, :app
+
+# Defaults to the primary :db server
+set :migration_servers, -> { primary(fetch(:migration_role)) }
+
+# Defaults to false
+# Skip migration if files in db/migrate were not modified
+set :conditionally_migrate, true
+
+# Defaults to [:web]
+set :assets_roles, [:web, :app]
+
+# Defaults to 'assets'
+# This should match config.assets.prefix in your rails config/application.rb
+set :assets_prefix, 'prepackaged-assets'
+
+# Defaults to ["/path/to/release_path/public/#{fetch(:assets_prefix)}/.sprockets-manifest*", "/path/to/release_path/public/#{fetch(:assets_prefix)}/manifest*.*"]
+# This should match config.assets.manifest in your rails config/application.rb
+set :assets_manifests, ['app/assets/config/manifest.js']
+
+# RAILS_GROUPS env value for the assets:precompile task. Default to nil.
+set :rails_assets_groups, :assets
+
+# If you need to touch public/images, public/javascripts, and public/stylesheets on each deploy
+set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
 
 
 namespace :deploy do
 
-
+  namespace :check do
+    before :linked_files, :copy_linked_files_if_needed do
+      on roles(:app), in: :sequence, wait: 10 do
+        %w{master.key database.yml}.each do |config_filename|
+          unless test("[ -f #{shared_path}/config/#{config_filename} ]")
+            upload! "config/#{config_filename}", "#{shared_path}/config/#{config_filename}"
+          end
+        end
+      end
+    end
+  end
 
   # namespace :check do
   #   before :linked_files, :set_master_key do
