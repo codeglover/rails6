@@ -23,9 +23,9 @@ set :pty, false
 set :rvm_type, :user
 set :rvm_ruby_version, '3.0.0'
 # set :rvm_custom_path, '~/.rvm/bin'
-set :default_env, {
-    "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
-}
+# set :default_env, {
+#     "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
+# }
 
 # set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
@@ -42,38 +42,6 @@ append :linked_files, 'config/database.yml', 'config/master.key'
 # set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 # set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
-# RAILS specific settings
-
-# If the environment differs from the stage name
-# set :rails_env, 'staging'
-
-# Defaults to :db role
-# App is recommended since the framework manages this
-set :migration_role, :app
-
-# Defaults to the primary :db server
-set :migration_servers, -> { primary(fetch(:migration_role)) }
-
-# Defaults to false
-# Skip migration if files in db/migrate were not modified
-set :conditionally_migrate, true
-
-# Defaults to [:web]
-set :assets_roles, [:web, :app]
-
-# Defaults to 'assets'
-# This should match config.assets.prefix in your rails config/application.rb
-set :assets_prefix, 'prepackaged-assets'
-
-# Defaults to ["/path/to/release_path/public/#{fetch(:assets_prefix)}/.sprockets-manifest*", "/path/to/release_path/public/#{fetch(:assets_prefix)}/manifest*.*"]
-# This should match config.assets.manifest in your rails config/application.rb
-set :assets_manifests, ['app/assets/config/manifest.js']
-
-# RAILS_GROUPS env value for the assets:precompile task. Default to nil.
-set :rails_assets_groups, :assets
-
-# If you need to touch public/images, public/javascripts, and public/stylesheets on each deploy
-set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
 
 
 namespace :deploy do
