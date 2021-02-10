@@ -30,7 +30,7 @@ set :rvm_ruby_version, '3.0.0'
 # set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
 
-append :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 append :linked_files, 'config/database.yml', 'config/master.key'
 # set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
 # removed
