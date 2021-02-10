@@ -115,6 +115,8 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (1.6.0)
       capistrano (~> 3.1)
+    capistrano-faster-assets (1.1.0)
+      capistrano (>= 3.1)
     capistrano-figaro-yml (1.0.5)
       capistrano (~> 3.1)
       sshkit (~> 1.2, >= 1.2.0)
@@ -414,6 +416,7 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.10)
   capistrano-bundler (~> 1.6)
+  capistrano-faster-assets (~> 1.0)
   capistrano-figaro-yml (~> 1.0.2)
   capistrano-postgresql (~> 4.8.0)
   capistrano-rails (~> 1.6)
