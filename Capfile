@@ -15,7 +15,7 @@ require 'capistrano/postgresql'
 # require 'capistrano/sidekiq'
 require 'capistrano/rails/console'
 require 'capistrano/rails/logs'
-require 'capistrano/figaro_yml'
+# require 'capistrano/figaro_yml'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma  # Default puma tasks
 # install_plugin Capistrano::Puma::Workers  # if you want to control the workers (in cluster mode)

@@ -64,14 +64,14 @@ group :development do
   gem 'capistrano', '~> 3.10',  require: false
   gem 'capistrano-rails', '~> 1.6',  require: false
   gem 'capistrano-bundler', '~> 1.6', require: false
-  gem 'rvm1-capistrano3', '1.4.0', require: false
+  gem 'rvm1-capistrano3', require: false
   #gem 'capistrano-rvm'
   gem 'capistrano-faster-assets', '~> 1.0'
   gem 'capistrano-postgresql', '~> 4.8.0'
   gem 'capistrano-rails-console', require: false
   gem 'capistrano-sidekiq', '~> 1', group: :development
   gem 'capistrano-rails-logs-tail'
-  gem 'capistrano-figaro-yml', '~> 1.0.2'
+  # gem 'capistrano-figaro-yml', '~> 1.0.2'
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
