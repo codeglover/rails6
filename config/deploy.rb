@@ -13,7 +13,7 @@ set :pty, false
 
 # RVM 1 Settings
 append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
-set :rvm1_ruby_version, 'ruby-2.3.3'
+set :rvm1_ruby_version, 'ruby-3.0.0'
 set :rvm_type, :user
 set :default_env, {
     rvm_bin_path: '~/.rvm/bin',
@@ -34,10 +34,10 @@ set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.r
 # Gemfile.lock
 
 #sidekiq
-set :init_system, :systemd
-set :service_unit_name, "sidekiq.service"
-set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
-set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
+# set :init_system, :systemd
+# set :service_unit_name, "sidekiq.service"
+# set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
+# set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
 
 
