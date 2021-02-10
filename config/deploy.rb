@@ -28,8 +28,8 @@ set :rvm_ruby_version, '3.0.0'
 #     "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
 # }
 
-set :linked_files, ['config/database.yml', 'config/master.key']
-# append :linked_files, "config/master.key"
+# set :linked_files, ['config/database.yml', 'config/master.key']
+append :linked_files, "config/master.key"
 
 set :linked_dirs, ['.bundle', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
 
@@ -50,15 +50,15 @@ namespace :deploy do
 
 
 
-  namespace :check do
-    before :linked_files, :set_master_key do
-      on roles(:app), in: :sequence, wait: 10 do
-        unless test("[ -f #{shared_path}/config/master.key ]")
-          upload! 'config/master.key', "#{shared_path}/config/master.key"
-        end
-      end
-    end
-  end
+  # namespace :check do
+  #   before :linked_files, :set_master_key do
+  #     on roles(:app), in: :sequence, wait: 10 do
+  #       unless test("[ -f #{shared_path}/config/master.key ]")
+  #         upload! 'config/master.key', "#{shared_path}/config/master.key"
+  #       end
+  #     end
+  #   end
+  # end
 
   # task :fix_absent_manifest_bug do
   #   on roles(:web) do
