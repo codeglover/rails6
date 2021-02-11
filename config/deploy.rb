@@ -92,7 +92,7 @@ namespace :deploy do
   # before 'deploy:migrate', 'deploy:create_db'
   # after :finished, 'deploy:seed'
   # after :finished, 'app:restart'
-  after :finished, 'puma:restart'
+  # after :finished, 'puma:restart'
 end
 
 namespace :app do
