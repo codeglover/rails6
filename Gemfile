@@ -64,6 +64,7 @@ group :development do
   gem 'capistrano', '~> 3.15',  require: false
   gem 'capistrano-rails', '~> 1.6',  require: false
   gem 'capistrano-bundler', '~> 2.0', require: false
+  gem 'capistrano3-puma', '~> 4.0'
   gem 'rvm1-capistrano3', require: false
   # gem 'capistrano-rvm'
   gem 'capistrano-faster-assets', '~> 1.0'
@@ -72,7 +73,7 @@ group :development do
   gem 'capistrano-sidekiq', '~> 1', group: :development
   gem 'capistrano-rails-logs-tail'
   # gem 'capistrano-figaro-yml', '~> 1.0.2'
-  gem 'capistrano3-puma'
+
 end
 
 group :test do

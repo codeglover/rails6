@@ -16,9 +16,12 @@ require 'capistrano/postgresql'
 require 'capistrano/rails/console'
 require 'capistrano/rails/logs'
 # require 'capistrano/figaro_yml'
+require 'rvm1/capistrano3'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
-require 'rvm1/capistrano3'
+install_plugin Capistrano::Puma::Daemon
+
+
 # install_plugin Capistrano::Puma::Systemd
 # install_plugin Capistrano::Puma::Workers  # if you want to control the workers (in cluster mode)
 # install_plugin Capistrano::Puma::Jungle # if you need the jungle tasks
