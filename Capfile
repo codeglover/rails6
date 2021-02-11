@@ -5,7 +5,7 @@ install_plugin Capistrano::SCM::Git
 
 require 'capistrano/setup'
 require 'capistrano/deploy'
-require 'rvm1/capistrano3'
+
 # require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
@@ -17,7 +17,8 @@ require 'capistrano/rails/console'
 require 'capistrano/rails/logs'
 # require 'capistrano/figaro_yml'
 require 'capistrano/puma'
-install_plugin Capistrano::Puma, load_hooks: false
+install_plugin Capistrano::Puma
+require 'rvm1/capistrano3'
 # install_plugin Capistrano::Puma::Systemd
 # install_plugin Capistrano::Puma::Workers  # if you want to control the workers (in cluster mode)
 # install_plugin Capistrano::Puma::Jungle # if you need the jungle tasks
