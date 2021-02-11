@@ -10,7 +10,7 @@ set :log_level, :debug
 set :pty, false
 
 # RVM 1 Settings
-append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
+# append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactcl'
 set :rvm1_ruby_version, 'ruby-3.0.0'
 set :rvm_type, :user
 set :default_env, {
