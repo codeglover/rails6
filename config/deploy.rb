@@ -46,7 +46,7 @@ set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.r
 
 set :default_env, {
     "RAILS_ENV" => "production",
-    "RAILS_MASTER_KEY" => "c4042353acf7ae37e813501153fd62a6",
+    "RAILS_MASTER_KEY" => "90573a0421fe8a236d7f4aa19132df76",
     "PATH" => "/home/ubuntu/.nvm/versions/node/v15.8.0/bin:$PATH"
 }
 
