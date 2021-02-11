@@ -72,7 +72,7 @@ group :development do
   gem 'capistrano-sidekiq', '~> 1', group: :development
   gem 'capistrano-rails-logs-tail'
   # gem 'capistrano-figaro-yml', '~> 1.0.2'
-  # gem 'capistrano3-puma'
+  gem 'capistrano3-puma',   require: false
 end
 
 group :test do
