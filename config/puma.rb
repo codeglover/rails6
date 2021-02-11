@@ -9,7 +9,7 @@ pidfile "#{app_path}/shared/tmp/pids/puma.pid"
 state_path "#{app_path}/shared/tmp/puma.state"
 workers 2
 threads 5, 5
-bind "unix:#{app_path}/shared/tmp/sockets/rails6-puma.sock"
+bind "unix:#{app_path}/shared/tmp/sockets/puma.sock"
 preload_app!
 on_worker_boot do
   # Valid on Rails 4.1+ using the `config/database.yml` method of setting `pool` size
