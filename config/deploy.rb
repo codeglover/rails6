@@ -9,6 +9,12 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
+set :default_env, {
+    "RAILS_ENV" => "production",
+    "RAILS_MASTER_KEY" => "c4042353acf7ae37e813501153fd62a6",
+    "PATH" => "/home/ubuntu/.nvm/versions/node/v15.8.0/bin:$PATH"
+}
+
 # RVM 1 Settings
 append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
 set :rvm1_ruby_version, 'ruby-3.0.0'
@@ -26,11 +32,8 @@ set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
 # set :default_env, {
 #     "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
 # }
-set :default_env, {
-    "RAILS_ENV" => "production",
-    "RAILS_MASTER_KEY" => "c4042353acf7ae37e813501153fd62a6",
-    "PATH" => "/home/ubuntu/.nvm/versions/node/v15.8.0/bin:$PATH"
-}
+
+
 
 # set :linked_files, ['config/database.yml', 'config/master.key']
 # append :linked_files, "config/master.key"
