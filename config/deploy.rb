@@ -95,38 +95,38 @@ namespace :deploy do
   # after :finished, 'puma:restart'
 end
 
-namespace :app do
-  desc 'Start application'
-  task :start do
-    on roles(:app) do
-      invoke 'rvm1:hook'
-      within "#{fetch(:deploy_to)}/current/" do
-        execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
-      end
-    end
-  end
-
-  desc 'Stop application'
-  task :stop do
-    on roles(:app) do
-      invoke 'rvm1:hook'
-      within "#{fetch(:deploy_to)}/current/" do
-        execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
-      end
-    end
-  end
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app) do
-      invoke 'rvm1:hook'
-      within "#{fetch(:deploy_to)}/current/" do
-        if test("[ -f #{deploy_to}/current/tmp/pids/puma.pid ]")
-          execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
-        end
-
-        execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
-      end
-    end
-  end
-end
+# namespace :app do
+#   desc 'Start application'
+#   task :start do
+#     on roles(:app) do
+#       invoke 'rvm1:hook'
+#       within "#{fetch(:deploy_to)}/current/" do
+#         execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
+#       end
+#     end
+#   end
+#
+#   desc 'Stop application'
+#   task :stop do
+#     on roles(:app) do
+#       invoke 'rvm1:hook'
+#       within "#{fetch(:deploy_to)}/current/" do
+#         execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
+#       end
+#     end
+#   end
+#
+#   desc 'Restart application'
+#   task :restart do
+#     on roles(:app) do
+#       invoke 'rvm1:hook'
+#       within "#{fetch(:deploy_to)}/current/" do
+#         if test("[ -f #{deploy_to}/current/tmp/pids/puma.pid ]")
+#           execute :bundle, :exec, :'pumactl -F config/puma.rb stop'
+#         end
+#
+#         execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
+#       end
+#     end
+#   end
+# end
