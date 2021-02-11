@@ -16,7 +16,7 @@ require 'capistrano/postgresql'
 require 'capistrano/rails/console'
 require 'capistrano/rails/logs'
 # require 'capistrano/figaro_yml'
-require 'capistrano/puma'
+# require 'capistrano/puma'
 
 # install_plugin Capistrano::Puma  # Default puma tasks
 # install_plugin Capistrano::Puma::Systemd
