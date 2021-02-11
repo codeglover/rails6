@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b5d2bf3-6cc0-4364-bb0c-e0c03a57cc7a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config/credentials.yml.enc" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy.rb" afterPath="$PROJECT_DIR$/config/deploy.rb" />
     </list>
     <ignored path="testing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,11 +94,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="167">
               <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.key" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/master.key">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -713,12 +723,12 @@
       <option name="presentableId" value="Default" />
       <updated>1612201927487</updated>
       <workItem from="1612201929585" duration="41169000" />
-      <workItem from="1612665385457" duration="31557000" />
+      <workItem from="1612665385457" duration="31698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72726000" />
+    <option name="totallyTimeSpent" value="72867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1545" height="915" extended-state="0" />
@@ -1097,14 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/master.key">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1157,6 +1159,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/master.key">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="32" />
           <folding />
         </state>
       </provider>
