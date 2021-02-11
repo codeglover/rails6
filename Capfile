@@ -18,7 +18,7 @@ require 'capistrano/rails/logs'
 # require 'capistrano/figaro_yml'
 require 'rvm1/capistrano3'
 require 'capistrano/puma'
-install_plugin Capistrano::Puma
+# install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Daemon
 
 
