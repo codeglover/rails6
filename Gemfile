@@ -69,7 +69,7 @@ group :development do
   gem 'capistrano-faster-assets', '~> 1.0'
   gem 'capistrano-postgresql', '~> 6.2.0'
   gem 'capistrano-rails-console', require: false
-  # gem 'capistrano-sidekiq', '~> 1', group: :development
+  gem 'capistrano-sidekiq', '~> 1', group: :development
   gem 'capistrano-rails-logs-tail'
   # gem 'capistrano-figaro-yml', '~> 1.0.2'
   gem 'capistrano3-puma','~> 5.0', github: "seuros/capistrano-puma"
