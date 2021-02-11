@@ -16,7 +16,7 @@ require 'capistrano/postgresql'
 require 'capistrano/rails/console'
 require 'capistrano/rails/logs'
 # require 'capistrano/figaro_yml'
-gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+gem 'capistrano-puma',   require: false
 install_plugin Capistrano::Puma  # Default puma tasks
 # install_plugin Capistrano::Puma::Systemd
 # install_plugin Capistrano::Puma::Workers  # if you want to control the workers (in cluster mode)
