@@ -9,12 +9,6 @@ set :keep_releases, 2
 set :log_level, :debug
 set :pty, false
 
-set :default_env, {
-    "RAILS_ENV" => "production",
-    "RAILS_MASTER_KEY" => "c4042353acf7ae37e813501153fd62a6",
-    "PATH" => "/home/ubuntu/.nvm/versions/node/v15.8.0/bin:$PATH"
-}
-
 # RVM 1 Settings
 append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
 set :rvm1_ruby_version, 'ruby-3.0.0'
@@ -50,7 +44,11 @@ set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.r
 # set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 # set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
-
+set :default_env, {
+    "RAILS_ENV" => "production",
+    "RAILS_MASTER_KEY" => "c4042353acf7ae37e813501153fd62a6",
+    "PATH" => "/home/ubuntu/.nvm/versions/node/v15.8.0/bin:$PATH"
+}
 
 namespace :deploy do
 
@@ -64,32 +62,32 @@ namespace :deploy do
     end
   end
 
-  namespace :assets do
-    task :backup_manifest do
-      on roles(fetch(:assets_roles)) do
-        within release_path do
-          execute :cp,
-                  release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
-                  release_path.join('assets_manifest_backup')
-        end
-      end
-    end
-  end
-  desc 'Uploads required config files'
-  task :upload_configs do
-    on roles(:all) do
-      upload!(".env.#{fetch(:stage)}", "#{deploy_to}/shared/.env")
-    end
-  end
-  desc 'Seeds database'
-  task :seed do
-    on roles(:app) do
-      invoke 'rvm1:hook'
-      within release_path do
-        execute :bundle, :exec, :"rake db:setup RAILS_ENV=#{fetch(:stage)}"
-      end
-    end
-  end
+  # namespace :assets do
+  #   task :backup_manifest do
+  #     on roles(fetch(:assets_roles)) do
+  #       within release_path do
+  #         execute :cp,
+  #                 release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
+  #                 release_path.join('assets_manifest_backup')
+  #       end
+  #     end
+  #   end
+  # end
+  # desc 'Uploads required config files'
+  # task :upload_configs do
+  #   on roles(:all) do
+  #     upload!(".env.#{fetch(:stage)}", "#{deploy_to}/shared/.env")
+  #   end
+  # end
+  # desc 'Seeds database'
+  # task :seed do
+  #   on roles(:app) do
+  #     invoke 'rvm1:hook'
+  #     within release_path do
+  #       execute :bundle, :exec, :"rake db:setup RAILS_ENV=#{fetch(:stage)}"
+  #     end
+  #   end
+  # end
 
   # before 'deploy:migrate', 'deploy:create_db'
   # after :finished, 'deploy:seed'
