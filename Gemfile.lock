@@ -211,8 +211,8 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    libv8 (3.16.14.19-x86_64-darwin-18)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8 (8.4.255.0-x86_64-darwin-18)
+    libv8 (8.4.255.0-x86_64-linux)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -227,6 +227,8 @@ GEM
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
+    mini_racer (0.3.1)
+      libv8 (~> 8.4.255)
     minitest (5.14.3)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
@@ -316,7 +318,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.2.5)
-    ref (2.0.0)
     regexp_parser (2.0.3)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -365,9 +366,6 @@ GEM
       sshkit (~> 1.12)
     stimulus-rails (0.2.3)
       rails (>= 6.0.0)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.1.0)
     tilt (2.0.10)
     turbo-rails (0.5.9)
@@ -432,6 +430,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick (~> 4.10, >= 4.10.1)
+  mini_racer
   name_of_person (~> 1.1)
   noticed (~> 1.2)
   omniauth-facebook (~> 6.0)
@@ -449,7 +448,6 @@ DEPENDENCIES
   sitemap_generator (~> 6.1, >= 6.1.2)
   spring
   sqlite3 (~> 1.4)
-  therubyracer
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
