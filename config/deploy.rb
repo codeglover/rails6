@@ -59,6 +59,13 @@ namespace :deploy do
   end
 end
 
+desc "Yarn Install"
+task :yarn_install do
+  on roles(:all) do |host|
+    execute :yarn, :install, "--production"
+  end
+end
+
 # default not set
 # set :yarn_target_path, -> { "/home/ubuntu/.nvm/versions/node/v14.4.0/bin/yarn" }
 # set :yarn_flags, '--silent --no-progress'    # default
