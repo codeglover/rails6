@@ -11,7 +11,7 @@ import "channels"
 
 // import the application.scss we created for the bootstrap CSS (if you are not using assets stylesheet)
 import "../stylesheets/application"
-import "../src/style.scss"
+// import "../src/style.scss"
 // If you are using `import` syntax
 // import '@client-side-validations/client-side-validations'
 // import the bootstrap javascript module
