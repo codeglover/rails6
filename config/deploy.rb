@@ -27,6 +27,13 @@ set :pty, false
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
 set :rvm_ruby_version, '3.0.0'
 
+set :default_env, {
+    rvm_bin_path: '~/.rvm/bin',
+    # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
+    PATH: '$HOME/.npm-packages/bin/:$PATH',
+    NODE_ENVIRONMENT: 'production'
+}
+
 # RVM Settings
 # set :rvm_type, :user
 # set :rvm_ruby_version, '2.3.3'
