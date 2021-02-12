@@ -120,9 +120,6 @@ GEM
     capistrano-rails-logs-tail (1.0.5)
       capistrano (>= 3.4.0, < 4.0.0)
       capistrano-rails
-    capistrano-rvm (0.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
     capistrano-sidekiq (1.0.2)
       capistrano (>= 3.9.0)
       sidekiq (>= 3.4)
@@ -323,6 +320,9 @@ GEM
       ffi (~> 1.9)
     ruby2_keywords (0.0.4)
     rubyzip (2.3.0)
+    rvm1-capistrano3 (1.4.0)
+      capistrano (~> 3.0)
+      sshkit (>= 1.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -410,7 +410,6 @@ DEPENDENCIES
   capistrano-rails (~> 1.6)
   capistrano-rails-console
   capistrano-rails-logs-tail
-  capistrano-rvm
   capistrano-sidekiq (~> 1)
   capybara (>= 3.26)
   cocoon
@@ -434,6 +433,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
   redis (~> 4.2, >= 4.2.2)
+  rvm1-capistrano3
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq (~> 6.0, >= 6.0.3)

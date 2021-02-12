@@ -7,7 +7,7 @@ require 'capistrano/setup'
 require 'capistrano/deploy'
 
 require 'capistrano/rvm'
-# require 'rvm1/capistrano3'
+require 'rvm1/capistrano3'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
@@ -21,8 +21,8 @@ require 'capistrano/rails/logs'
 # require 'capistrano/npm'
 # require 'capistrano/yarn'
 
-# require 'capistrano/puma'
-# install_plugin Capistrano::Puma
+require 'capistrano/puma'
+install_plugin Capistrano::Puma
 
 
 # install_plugin Capistrano::Puma::Systemd
