@@ -30,8 +30,8 @@ set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl yarn node}
 set :default_env, {
     rvm_bin_path: '~/.rvm/bin',
     # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
-    PATH: '$HOME/.npm-packages/bin/:$PATH',
-    NODE_ENVIRONMENT: 'production'
+    # PATH: '$HOME/.npm-packages/bin/:$PATH',
+    # NODE_ENVIRONMENT: 'production'
 }
 
 # RVM Settings
