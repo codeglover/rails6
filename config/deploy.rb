@@ -47,6 +47,18 @@ set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
 # yarn
 
+before "deploy:assets:precompile", "deploy:yarn_install"
+namespace :deploy do
+  desc "Run rake yarn install"
+  task :yarn_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+      end
+    end
+  end
+end
+
 # default not set
 # set :yarn_target_path, -> { "/home/ubuntu/.nvm/versions/node/v14.4.0/bin/yarn" }
 # set :yarn_flags, '--silent --no-progress'    # default
