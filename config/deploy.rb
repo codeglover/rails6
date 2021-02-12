@@ -11,13 +11,13 @@ set :pty, false
 
 
 # RVM 1 Settings
-append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl yarn node'
+append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl', 'yarn', 'node'
 set :rvm1_ruby_version, 'ruby-3.0.0'
 set :rvm_type, :user
-set :default_env, {
-    rvm_bin_path: '~/.rvm/bin',
-    # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
-}
+# set :default_env, {
+#     rvm_bin_path: '~/.rvm/bin',
+#     # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
+# }
 set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl yarn node}
 
 
