@@ -11,21 +11,21 @@ set :pty, false
 
 
 # RVM 1 Settings
-# append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl'
-# set :rvm1_ruby_version, 'ruby-3.0.0'
-# set :rvm_type, :user
-# set :default_env, {
-#     rvm_bin_path: '~/.rvm/bin',
-#     # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
-# }
-# set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
+append :rvm1_map_bins, 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl yarn node'
+set :rvm1_ruby_version, 'ruby-3.0.0'
+set :rvm_type, :user
+set :default_env, {
+    rvm_bin_path: '~/.rvm/bin',
+    # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
+}
+set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl yarn node}
 
 
 # deploy.rb or stage file (staging.rb, production.rb or else)
 # set :rvm_type, :user                     # Defaults to: :auto
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
-set :rvm_ruby_version, '3.0.0'
+# set :rvm_ruby_version, '3.0.0'
 
 set :default_env, {
     rvm_bin_path: '~/.rvm/bin',
