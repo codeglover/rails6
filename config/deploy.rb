@@ -16,9 +16,9 @@ set :rvm1_ruby_version, 'ruby-3.0.0'
 set :rvm_type, :user
 set :default_env, {
     rvm_bin_path: '~/.rvm/bin',
+    # path: '/home/ubuntu/.nvm/versions/node/v14.4.0/bin'
 }
 set :rvm1_map_bins, %w{rake gem bundle ruby puma pumactl}
-
 
 # RVM Settings
 # set :rvm_type, :user
@@ -46,14 +46,13 @@ set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 # #set :yarn_flags, '--production --silent --no-progress'    # default
 # set :yarn_roles, :all                                     # default
 # set :yarn_env_variables, {}                               # default
-
-set :npm_target_path, -> { '/home/ubuntu/.nvm/versions/node/v14.4.0/bin/npm' } # default not set
+set :npm_target_path, -> { '/home/ubuntu/.nvm/versions/node/v14.4.0/bin' } # default not set
 set :npm_flags, '--production --silent --no-progress'    # default
 set :npm_roles, :all                                     # default
 set :npm_env_variables, {}                               # default
 set :npm_method, 'ci'                               # default
 
-set :yarn_target_path, -> { '/home/ubuntu/.nvm/versions/node/v14.4.0/bin/yarn' } # default not set
+set :yarn_target_path, -> { '/home/ubuntu/.nvm/versions/node/v14.4.0/bin' } # default not set
 set :yarn_flags, '--production'                           # default
 set :yarn_roles, :all                                     # default
 set :yarn_env_variables, {}
