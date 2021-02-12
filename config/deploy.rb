@@ -38,7 +38,11 @@ set :service_unit_name, "sidekiq.service"
 set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
-
+# yarn
+# set :yarn_target_path, -> { release_path.join('subdir') } # default not set
+set :yarn_flags, '--production --silent --no-progress'    # default
+set :yarn_roles, :all                                     # default
+set :yarn_env_variables, {}                               # default
 
 
 namespace :deploy do
@@ -66,30 +70,30 @@ namespace :deploy do
       end
     end
   end
-  before "deploy:assets:precompile", "deploy:npm_install"
-
-  namespace :deploy do
-    desc 'Run rake npm install'
-    task :npm_install do
-      on roles(:web) do
-        within release_path do
-          execute("cd #{release_path} && npm install")
-        end
-      end
-    end
-  end
-  before "deploy:assets:precompile", "deploy:yarn_install"
-
-  namespace :deploy do
-    desc 'Run rake yarn:install'
-    task :yarn_install do
-      on roles(:web) do
-        within release_path do
-          execute("cd #{release_path} && yarn install")
-        end
-      end
-    end
-  end
+  # before "deploy:assets:precompile", "deploy:npm_install"
+  #
+  # namespace :deploy do
+  #   desc 'Run rake npm install'
+  #   task :npm_install do
+  #     on roles(:web) do
+  #       within release_path do
+  #         execute("cd #{release_path} && npm install")
+  #       end
+  #     end
+  #   end
+  # end
+  # before "deploy:assets:precompile", "deploy:yarn_install"
+  #
+  # namespace :deploy do
+  #   desc 'Run rake yarn:install'
+  #   task :yarn_install do
+  #     on roles(:web) do
+  #       within release_path do
+  #         execute("cd #{release_path} && yarn install")
+  #       end
+  #     end
+  #   end
+  # end
   #before :starting, 'deploy:fix_absent_manifest_bug'
   # desc 'create_db'
   # task :create_db do
