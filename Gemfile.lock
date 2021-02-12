@@ -108,6 +108,8 @@ GEM
       capistrano (~> 3.1)
     capistrano-faster-assets (1.1.0)
       capistrano (>= 3.1)
+    capistrano-npm (1.0.3)
+      capistrano (>= 3.0.0)
     capistrano-postgresql (6.2.0)
       capistrano (>= 3.0)
       sshkit (>= 1.17.0)
@@ -412,6 +414,7 @@ DEPENDENCIES
   capistrano (~> 3.15)
   capistrano-bundler (~> 2.0)
   capistrano-faster-assets (~> 1.0)
+  capistrano-npm
   capistrano-postgresql (~> 6.2.0)
   capistrano-rails (~> 1.6)
   capistrano-rails-console

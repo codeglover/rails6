@@ -63,6 +63,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'capistrano', '~> 3.15',  require: false
+  gem 'capistrano-npm'
   gem 'capistrano-yarn'
   gem 'capistrano-rails', '~> 1.6',  require: false
   gem 'capistrano-bundler', '~> 2.0', require: false

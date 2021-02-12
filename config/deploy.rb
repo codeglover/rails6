@@ -39,11 +39,24 @@ set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 
 # yarn
-set :yarn_target_path, -> { "/home/ubuntu/.nvm/versions/node/v14.4.0/bin/yarn" } # default not set
-set :yarn_flags, '--production --silent --no-progress'    # default
-set :yarn_roles, :all                                     # default
-set :yarn_env_variables, {}                               # default
 
+# default not set
+# set :yarn_target_path, -> { "/home/ubuntu/.nvm/versions/node/v14.4.0/bin/yarn" }
+# set :yarn_flags, '--silent --no-progress'    # default
+# #set :yarn_flags, '--production --silent --no-progress'    # default
+# set :yarn_roles, :all                                     # default
+# set :yarn_env_variables, {}                               # default
+
+set :npm_target_path, -> { release_path.join('subdir') } # default not set
+set :npm_flags, '--production --silent --no-progress'    # default
+set :npm_roles, :all                                     # default
+set :npm_env_variables, {}                               # default
+set :npm_method, 'ci'                               # default
+
+set :yarn_target_path, -> { "/home/ubuntu/.nvm/versions/node/v14.4.0/bin/yarn" } # default not set
+set :yarn_flags, '--production'                           # default
+set :yarn_roles, :all                                     # default
+set :yarn_env_variables, {}
 
 namespace :deploy do
 
