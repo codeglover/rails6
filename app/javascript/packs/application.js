@@ -29,5 +29,3 @@ import "controllers"
 //     Turbolinks.dispatch("turbolinks:load");
 //     $(".field_with_errors input:first").focus();
 // });
-
-
