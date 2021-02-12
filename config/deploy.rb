@@ -66,6 +66,19 @@ namespace :deploy do
       end
     end
   end
+
+  before "deploy:assets:precompile", "deploy:yarn_install"
+
+  namespace :deploy do
+    desc 'Run rake yarn:install'
+    task :yarn_install do
+      on roles(:web) do
+        within release_path do
+          execute("cd #{release_path} && yarn install")
+        end
+      end
+    end
+  end
   #before :starting, 'deploy:fix_absent_manifest_bug'
   # desc 'create_db'
   # task :create_db do
