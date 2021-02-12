@@ -25,6 +25,7 @@ set :pty, false
 # set :rvm_type, :user                     # Defaults to: :auto
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
+set :rvm_ruby_version, '3.0.0'
 
 # RVM Settings
 # set :rvm_type, :user

@@ -17,7 +17,7 @@ require 'capistrano/postgresql'
 require 'capistrano/rails/console'
 require 'capistrano/rails/logs'
 # require 'capistrano/figaro_yml'
-require 'capistrano/puma'
+# require 'capistrano/puma'
 # require 'capistrano/npm'
 # require 'capistrano/yarn'
 install_plugin Capistrano::Puma
