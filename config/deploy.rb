@@ -90,6 +90,18 @@ set :sidekiq_log => File.join(shared_path, 'log', 'sidekiq.log')
 # set :yarn_roles, :all                                     # default
 # set :yarn_env_variables, {}
 
+namespace :assets do
+  task :backup_manifest do
+    on roles(fetch(:assets_roles)) do
+      within release_path do
+        execute :cp,
+                release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
+                release_path.join('assets_manifest_backup')
+      end
+    end
+  end
+end
+
 namespace :deploy do
 
   # task :fix_absent_manifest_bug do
@@ -104,17 +116,7 @@ namespace :deploy do
 
 
 
-  namespace :assets do
-    task :backup_manifest do
-      on roles(fetch(:assets_roles)) do
-        within release_path do
-          execute :cp,
-                  release_path.join('public', fetch(:assets_prefix), '.sprockets-manifest*'),
-                  release_path.join('assets_manifest_backup')
-        end
-      end
-    end
-  end
+
   # before "deploy:assets:precompile", "deploy:npm_install"
   #
   # namespace :deploy do
