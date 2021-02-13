@@ -3,8 +3,10 @@ module ApplicationCable
     identified_by :current_user
 
     def connect
-      self.current_user = find_verified_user
-      logger.add_tags 'ActionCable', current_user.name
+      if current_user.present?
+        self.current_user = find_verified_user
+        logger.add_tags 'ActionCable', current_user.name
+      end
     end
 
     protected

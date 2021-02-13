@@ -7,21 +7,11 @@
 import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
-
-// import the application.scss we created for the bootstrap CSS (if you are not using assets stylesheet)
-// import "../stylesheets/application"
-// import "../src/style.scss"
 // If you are using `import` syntax
-// import '@client-side-validations/client-side-validations'
-// import the bootstrap javascript module
-// import "bootstrap"
 import "jquery"
 import "@nathanvda/cocoon"
-
 // Rails.start()
 ActiveStorage.start()
-
 import "controllers"
 
 // $(document).on("ajax:error", "form", function(e, data, status, xhr) {
