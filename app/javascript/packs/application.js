@@ -32,3 +32,15 @@ import "controllers"
 // $(document).on('turbolinks:load', function() {
 //     Rails.refreshCSRFTokens();
 // });
+
+// $(document).on('turbolinks:load', function() {
+//     // Rails.refreshCSRFTokens();
+//     alert('reloaded');
+// });
+// $( document ).on('ready turbolinks:load', function() {
+//     alert('reloaded');
+// })
+
+// document.addEventListener("turbolinks:load", function () {
+//     alert('reloaded');
+// });
