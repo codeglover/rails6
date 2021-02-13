@@ -40,7 +40,7 @@ set :default_env, {
 # set :rvm_custom_path, '~/.myveryownrvm'
 
 set :linked_files, ['config/database.yml', 'config/master.key']
-set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store', 'public/assets']
+set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
 
 set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
 # removed
@@ -104,6 +104,15 @@ end
 
 namespace :deploy do
 
+
+  task :delete_public_assets do
+    on roles(:web) do
+      execute("rm -rf /home/ubuntu/www/rails6/shared/public/assets")
+    end
+  end
+
+  before "deploy:assets:precompile", "deploy:delete_public_assets"
+
   # task :fix_absent_manifest_bug do
   #   on roles(:web) do
   #     within release_path do execute 'mkdir', release_path, 'assets_manifest_backup'
@@ -152,6 +161,17 @@ namespace :deploy do
   #   end
   # end
 
+  # namespace :deploy do
+  #   desc 'Run rake yarn:install'
+  #   task :yarn_install do
+  #     on roles(:web) do
+  #       within release_path do
+  #         execute("cd #{release_path} && yarn install")
+  #       end
+  #     end
+  #   end
+  # end
+
   desc 'Uploads required config files'
   task :upload_configs do
     on roles(:all) do
@@ -180,7 +200,7 @@ namespace :deploy do
   end
 
   # before 'deploy:migrate', 'deploy:create_db'
-  after :finished, 'app:restart'
+  # after :finished, 'app:restart'
   after :finished, 'puma:restart'
 end
 
