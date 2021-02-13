@@ -3,7 +3,7 @@
     "@hotwired/turbo-rails": "^7.0.0-beta.5",
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/activestorage": "^6.1.2-1",
-    "@rails/webpacker": "^6.0.0-beta.5",
+    "@rails/webpacker": "5.2.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
