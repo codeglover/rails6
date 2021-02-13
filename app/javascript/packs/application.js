@@ -19,6 +19,7 @@ import "bootstrap"
 import "jquery"
 import "@nathanvda/cocoon"
 
+
 // Rails.start()
 ActiveStorage.start()
 
