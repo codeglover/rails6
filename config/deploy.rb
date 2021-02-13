@@ -105,72 +105,79 @@ end
 namespace :deploy do
 
 
-  task :delete_public_assets do
+  task :delete_public_assets_shared do
     on roles(:web) do
       execute("rm -rf /home/ubuntu/www/rails6/shared/public/assets")
     end
   end
+  task :delete_public_assets do
+    on roles(:web) do
+      within release_path do execute("rm -rf public/assets")
+      end
+    end
+  end
 
-  before "deploy:assets:precompile", "deploy:delete_public_assets"
+  before "git:wrapper", "deploy:delete_public_assets_shared"
+  before "bundler:install", "deploy:delete_public_assets"
 
-  # task :fix_absent_manifest_bug do
-  #   on roles(:web) do
-  #     within release_path do execute 'mkdir', release_path, 'assets_manifest_backup'
-  #     end
-  #   end
-  # end
-  #
-  # after :updating, 'deploy:fix_absent_manifest_bug'
-
-
-
+# task :fix_absent_manifest_bug do
+#   on roles(:web) do
+#     within release_path do execute 'mkdir', release_path, 'assets_manifest_backup'
+#     end
+#   end
+# end
+#
+# after :updating, 'deploy:fix_absent_manifest_bug'
 
 
-  # before "deploy:assets:precompile", "deploy:npm_install"
-  #
-  # namespace :deploy do
-  #   desc 'Run rake npm install'
-  #   task :npm_install do
-  #     on roles(:web) do
-  #       within release_path do
-  #         execute("cd #{release_path} && npm install")
-  #       end
-  #     end
-  #   end
-  # end
-  # before "deploy:assets:precompile", "deploy:yarn_install"
-  #
-  # namespace :deploy do
-  #   desc 'Run rake yarn:install'
-  #   task :yarn_install do
-  #     on roles(:web) do
-  #       within release_path do
-  #         execute("cd #{release_path} && yarn install")
-  #       end
-  #     end
-  #   end
-  # end
-  #before :starting, 'deploy:fix_absent_manifest_bug'
-  # desc 'create_db'
-  # task :create_db do
-  #   on roles(:app) do
-  #     invoke 'rvm1:hook'
-  #     within release_path do
-  #       execute :bundle, :exec, :"rails db:create RAILS_ENV=#{fetch(:stage)}"
-  #     end
-  #   end
-  # end
 
-  # namespace :deploy do
-  #   desc 'Run rake yarn:install'
-  #   task :yarn_install do
-  #     on roles(:web) do
-  #       within release_path do
-  #         execute("cd #{release_path} && yarn install")
-  #       end
-  #     end
-  #   end
-  # end
+
+
+# before "deploy:assets:precompile", "deploy:npm_install"
+#
+# namespace :deploy do
+#   desc 'Run rake npm install'
+#   task :npm_install do
+#     on roles(:web) do
+#       within release_path do
+#         execute("cd #{release_path} && npm install")
+#       end
+#     end
+#   end
+# end
+# before "deploy:assets:precompile", "deploy:yarn_install"
+#
+# namespace :deploy do
+#   desc 'Run rake yarn:install'
+#   task :yarn_install do
+#     on roles(:web) do
+#       within release_path do
+#         execute("cd #{release_path} && yarn install")
+#       end
+#     end
+#   end
+# end
+#before :starting, 'deploy:fix_absent_manifest_bug'
+# desc 'create_db'
+# task :create_db do
+#   on roles(:app) do
+#     invoke 'rvm1:hook'
+#     within release_path do
+#       execute :bundle, :exec, :"rails db:create RAILS_ENV=#{fetch(:stage)}"
+#     end
+#   end
+# end
+
+# namespace :deploy do
+#   desc 'Run rake yarn:install'
+#   task :yarn_install do
+#     on roles(:web) do
+#       within release_path do
+#         execute("cd #{release_path} && yarn install")
+#       end
+#     end
+#   end
+# end
 
   desc 'Uploads required config files'
   task :upload_configs do
@@ -179,15 +186,15 @@ namespace :deploy do
     end
   end
 
-  # desc 'Seeds database'
-  # task :seed do
-  #   on roles(:app) do
-  #     invoke 'rvm1:hook'
-  #     within release_path do
-  #       execute :bundle, :exec, :"rails db:seed RAILS_ENV=#{fetch(:stage)}"
-  #     end
-  #   end
-  # end
+# desc 'Seeds database'
+# task :seed do
+#   on roles(:app) do
+#     invoke 'rvm1:hook'
+#     within release_path do
+#       execute :bundle, :exec, :"rails db:seed RAILS_ENV=#{fetch(:stage)}"
+#     end
+#   end
+# end
 
   desc 'Seeds database'
   task :seed do
@@ -199,9 +206,10 @@ namespace :deploy do
     end
   end
 
-  # before 'deploy:migrate', 'deploy:create_db'
-  # after :finished, 'app:restart'
+# before 'deploy:migrate', 'deploy:create_db'
+# after :finished, 'app:restart'
   after :finished, 'puma:restart'
+  after :finished, 'puma:start'
 end
 
 namespace :app do
