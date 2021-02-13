@@ -1,43 +1,23 @@
-<%= form_with(model: post, id: dom_id(post), data: {controller: "form"}) do |form| %>
-    <!--<%# if post.errors.any? %>-->
-    <!--<div id="error_explanation">-->
-    <!--<h2><%#= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>-->
 
-    <!--<ul>-->
-    <!--<%# post.errors.each do |error| %>-->
-    <!--<li><%#= error.full_message %></li>-->
-    <!--<%# end %>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<%# end %>-->
-
-    <div class="field">
-      <%= form.label :title %>
+<%= form_with(model: post, id: dom_id(post), class: "needs-validation", data: {controller: "form"}) do |form| %>
+    <h5 class="mb-3">New Post</h5>
+    <div class="row g-3">
+    <div class="field col-sm-6">
+      <%= form.label :title, class: "form-label" %>
       <%= form.text_field :title, required: true, class: "form-control form-control-md" %>
     </div>
-
-    <div class="field">
+    <div class="field col-sm-6">
       <%= form.label :publish_date %>
       <%= form.date_select :publish_date, class: "form-control form-control-md" %>
     </div>
-
-    <div class="field">
-      <%#= form.label :age_adult, "No", class: "form-label" %>
-      <%#= form.radio_button :happy, "child", class: "form-control form-control-md" %>
-      <%#= form.label :age_child, "Yes", class: "form-label" %>
-      <%#= form.radio_button :happy, "adult", class: "form-control form-control-md" %>
-
+    <div class="field col-sm-6">
       <%= form.label :happy %>
-      <%= form.check_box :happy, class: "form-control form-control-md" %>
+      <%= form.check_box :happy, class: "form-control form-control-sm left" %>
     </div>
-
-    <div class="field">
+    <div class="field col-sm-6">
       <%= form.label :scale, "How happy are you?", class: "form-label" %>
       <%= form.range_field :scale, required: true, in: 1..10, class: "form-range" %>
     </div>
-
-
-
     <% form.fields_for :kids, Comment.new do |comment| %>
         <%= comment.label :text %>
         <%= comment.text_field :text, required: true, class: "form-control form-control-md" %>
@@ -46,9 +26,13 @@
       <%= link_to_add_association '<i class=""></i>add'.html_safe, form, :kids, class: 'btn btn-xs btn-default', style: '', id: "add_comment_button" %>
     </label>
     <hr>
-
+      <hr class="my-4">
     <div class="actions">
-      <%= form.submit class: "btn btn-success submit-button" %>
+      <%= form.submit class: "w-100 left btn btn-primary btn-lg submit-button" %>
     </div>
+      </div>
 <% end %>
+
+
+
 
