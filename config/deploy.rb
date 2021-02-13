@@ -40,7 +40,7 @@ set :default_env, {
 # set :rvm_custom_path, '~/.myveryownrvm'
 
 set :linked_files, ['config/database.yml', 'config/master.key']
-set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store']
+set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'tmp/uploads/cache', 'tmp/uploads/store', 'public/assets']
 
 set :assets_dependencies, %w(app/assets lib/assets vendor/assets config/routes.rb)
 # removed
@@ -180,8 +180,7 @@ namespace :deploy do
   end
 
   # before 'deploy:migrate', 'deploy:create_db'
-  # after :finished, 'deploy:seed'
-  # after :finished, 'app:restart'
+  after :finished, 'app:restart'
   after :finished, 'puma:restart'
 end
 
