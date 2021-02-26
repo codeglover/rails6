@@ -129,10 +129,6 @@ namespace :deploy do
 #
 # after :updating, 'deploy:fix_absent_manifest_bug'
 
-
-
-
-
 # before "deploy:assets:precompile", "deploy:npm_install"
 #
 # namespace :deploy do
